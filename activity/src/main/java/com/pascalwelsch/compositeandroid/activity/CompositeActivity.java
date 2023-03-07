@@ -1095,6 +1095,9 @@ public class CompositeActivity extends AppCompatActivity implements ICompositeAc
 
     @Override
     public Lifecycle getLifecycle() {
+        if (delegate == null) {
+            delegate = new ActivityDelegate(this);
+        }
         return delegate.getLifecycle();
     }
 
